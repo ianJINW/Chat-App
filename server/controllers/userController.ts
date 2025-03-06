@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import prisma from "../utils/prisma";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import signupSchema from "../middleware/validate";
 
 // Fetch all users
 export const getUsers = async (req: Request, res: Response) => {
@@ -35,7 +36,7 @@ export const getUserById = async (req: Request, res: Response) => {
 // Create a new user
 export const createUser = async (req: Request, res: Response) => {
 	try {
-		const { email, username, password } = req.body;
+		const { email, username, password } = signupSchema.parse(req.body);
 		console.log(req.body);
 		const image = req.file?.path || null;
 
