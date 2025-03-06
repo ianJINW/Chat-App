@@ -1,0 +1,55 @@
+{
+	"name": "client",
+	"version": "1.0.0",
+	"proxy": "http://localhost:8000",
+	"description": "A frontend application where users can share images, videos and texts",
+	"keywords": [
+		"React",
+		"Typescript",
+		"Frontend"
+	],
+	"homepage": "https://github.com/ianJINW/full-stack-react-typescript#readme",
+	"bugs": {
+		"url": "https://github.com/ianJINW/full-stack-react-typescript/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ianJINW/full-stack-react-typescript.git"
+	},
+	"license": "MIT",
+	"author": "Njenga Ian Wandaka (ianJINW)",
+	"type": "commonjs",
+	"main": "index.js",
+	"scripts": {
+		"test": "jest",
+		"start": "parcel public/index.html"
+	},
+	"dependencies": {
+		"@reduxjs/toolkit": "^2.5.1",
+		"@tailwindcss/postcss": "^4.0.7",
+		"@tanstack/react-query": "^5.66.0",
+		"dompurify": "^3.2.4",
+		"react": "^19.0.0",
+		"react-dom": "^19.0.0",
+		"react-hook-form": "^7.54.2",
+		"react-redux": "^9.2.0",
+		"react-router": "^6.29.0",
+		"react-router-dom": "^6.29.0",
+		"yup": "^1.6.1",
+		"zustand": "^5.0.3"
+	},
+	"devDependencies": {
+		"@types/node": "^22.13.9",
+		"@types/react": "^19.0.8",
+		"@types/react-dom": "^19.0.3",
+		"autoprefixer": "^10.4.20",
+		"axios": "^1.7.9",
+		"buffer": "^6.0.3",
+		"dotenv": "^16.4.7",
+		"parcel": "^2.13.3",
+		"postcss": "^8.5.3",
+		"process": "^0.11.10",
+		"tailwindcss": "^4.0.9",
+		"typescript": "^5.7.3"
+	}
+}
