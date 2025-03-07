@@ -90,7 +90,7 @@ export const createUser = async (req: Request, res: Response) => {
 // Update an existing user
 export const updateUser = async (req: Request, res: Response) => {
 	const { id } = req.params;
-	const { email, username, password } = req.body;
+	const { email, username, password } = signupSchema.parse(req.body);
 	const image = req.file?.path;
 
 	try {

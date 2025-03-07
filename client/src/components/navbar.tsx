@@ -45,6 +45,12 @@ const Navbar: React.FC = () => {
 					<>
 						<Link
 							className="bg-gray-500 hover:bg-gray-100 hover:text-black p-2 rounded"
+							to="/Chats"
+						>
+							Chats
+						</Link>
+						<Link
+							className="bg-gray-500 hover:bg-gray-100 hover:text-black p-2 rounded"
 							to="/account"
 						>
 							Account

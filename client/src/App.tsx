@@ -7,6 +7,7 @@ import Account from "./pages/Account";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import { useAuth } from "./useAuth";
+import Chat from "./pages/Chat";
 
 const App: React.FC = () => {
 	const { isDark } = useAuth();
@@ -23,6 +24,7 @@ const App: React.FC = () => {
 					<Routes>
 						<Route path="/" element={<Home />} />
 						<Route path="/fyp" element={<Posts />} />
+						<Route path="/Chats" element={<Chat />} />
 						<Route path="/account" element={<Account />} />
 						<Route path="/login" element={<Login />} />
 						<Route path="/register" element={<Register />} />

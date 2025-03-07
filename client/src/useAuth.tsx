@@ -7,7 +7,5 @@ export const useAuth = (): AuthContextType => {
 		throw new Error("useAuth must be used within an AuthProvider");
 	}
 
-	console.log(context, context.login);
-
 	return context;
 };
