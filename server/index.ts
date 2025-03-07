@@ -45,6 +45,6 @@ app.use("/api/users", userRoutes);
 app.use("/login", login);
 app.use("/register", createUser);
 
-server.listen(3000, () => {
+server.listen(3080, () => {
 	console.log(`Connected on port 3000`);
 });

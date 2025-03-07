@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { io, Socket } from "socket.io-client";
+import socketIoClient, { Socket } from "socket.io-client";
 
 const Chat = () => {
 	const [message, setMessage] = useState("");
@@ -10,8 +10,18 @@ const Chat = () => {
 
 	console.log("Chat component rendered", chatMessages);
 
+	const sendMessage = (e: React.FormEvent) => {
+		e.preventDefault();
+		console.log("Form submitted"); // Debugging form submission
+		if (message.trim() !== "" && socket && socket.connected) {
+			console.log("Sending message:", message); // Debugging message sending
+			socket.emit("chat message", message);
+			setMessage("");
+		}
+	};
+
 	useEffect(() => {
-		const newSocket = io("http://localhost:3000", {
+		const newSocket = socketIoClient("http://localhost:5000", {
 			withCredentials: true,
 		});
 		setSocket(newSocket);
@@ -20,7 +30,7 @@ const Chat = () => {
 			console.log("connected");
 		});
 
-		newSocket.on(
+		newSocket.emit(
 			"chat-message",
 			(data: { userId: string; message: string }) => {
 				console.log("Received chat message:", data);
@@ -40,17 +50,7 @@ const Chat = () => {
 			console.log("Disconnecting socket");
 			newSocket.disconnect();
 		};
-	}, []);
-
-	const sendMessage = (e: React.FormEvent) => {
-		e.preventDefault();
-		console.log("Form submitted"); // Debugging form submission
-		if (message.trim() !== "" && socket && socket.connected) {
-			console.log("Sending message:", message); // Debugging message sending
-			socket.emit("chat message", message);
-			setMessage("");
-		}
-	};
+	}, [setSocket]);
 
 	return (
 		<main>
